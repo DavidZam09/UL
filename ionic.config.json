@@ -1,0 +1,7 @@
+{
+  "name": "Ultralav",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
