@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ultralapp-e631a": {
+      "hosting": {
+        "app": [
+          "ultralav"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ultralapp-e631a"
+  }
+}

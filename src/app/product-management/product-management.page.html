@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="ultra"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <div id="container">
+
+    <ion-card>
+      <ion-title>Producto</ion-title>
+      <form>
+        <ion-item *ngIf="data">
+          <ion-label position="floating">Nombre del producto </ion-label>
+          <ion-input required placeholder="Nombre Del Producto" [(ngModel)]="data.nameProd" name="nameProd" type="text">
+          </ion-input>
+        </ion-item>
+        <ion-item *ngIf="data">
+          <ion-label position="floating">Proveedor</ion-label>
+          <ion-input [(ngModel)]="data.shop" name="shop" type="text"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="data">
+          <ion-label position="floating">Precio</ion-label>
+          <ion-input required [(ngModel)]="data.price" name="price" type="number"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="data">
+          <ion-label position="floating">Comprados</ion-label>
+          <ion-input required [(ngModel)]="data.purchased" name="purchased" type="number"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="data">
+          <ion-label position="floating">Existencias</ion-label>
+          <ion-input required [(ngModel)]="data.stocks" name="stocks" type="number"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="data">
+          <ion-label position="floating">Gramo/litros</ion-label>
+          <ion-input required [(ngModel)]="data.gl" name="gl" type="number"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="data">
+          <ion-label>Ciudad</ion-label>
+          <ion-select required [(ngModel)]="data.city" name="city" okText="Aceptar" cancelText="Cancelar">
+            <ion-select-option *ngFor="let city of cities" [value]="city">{{city}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-button expand="block" type="submit" (click)="updateProduct()">
+          Guardar
+        </ion-button>
+      </form>
+    </ion-card>
+
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger" (click)="deleteProduct(data.id)" routerDirection="forward">
+      <ion-icon name="trash"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="ultra"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <div id="container">
+
+    <ion-card>
+      <ion-title>Usuario</ion-title>
+      <form>
+        <ion-item *ngIf="data">
+          <ion-label position="floating">Nombre </ion-label>
+          <ion-input required [(ngModel)]="data.Name" name="name" type="text">
+          </ion-input>
+        </ion-item>
+        <ion-item *ngIf="data">
+          <ion-label position="floating">Apellido</ion-label>
+          <ion-input [(ngModel)]="data.lastname" name="lastname" type="text"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="data">
+          <ion-label position="floating">Mail</ion-label>
+          <ion-input required [(ngModel)]="data.mail" name="mail" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="data && rol == 'Administrador'">
+          <ion-label>Rol</ion-label>
+          <ion-select required [(ngModel)]="data.perfil" name="perfil" okText="Aceptar" cancelText="Cancelar">
+            <ion-select-option *ngFor="let rol of roles" [value]="rol">{{rol}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-button expand="block" type="submit" (click)="updateUser()">
+          Guardar
+        </ion-button>
+      </form>
+    </ion-card>
+
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger" (click)="delete(data.uid)" routerDirection="forward">
+      <ion-icon name="trash"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

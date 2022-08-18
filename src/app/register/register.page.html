@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="ultra"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nuevo Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <form>
+      <ion-item lines="full">
+        <ion-label name="name" position="floating">Nombre</ion-label>
+        <ion-input name="name" type="text" [(ngModel)]="data.Name" required></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label name="lastname" position="floating">Apellido</ion-label>
+        <ion-input name="lastname" type="text" [(ngModel)]="data.lastname" required></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label name="Mail" position="floating" type="mail">Correo</ion-label>
+        <ion-input #email name="Mail" type="text" [(ngModel)]="data.mail" required></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label name="password" position="floating">Contraseña</ion-label>
+        <ion-input #password name="password" type="password" [(ngModel)]="data.password" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Rol</ion-label>
+        <ion-select [(ngModel)]="data.perfil" name="perfil" okText="Aceptar" cancelText="Cancelar">
+          <ion-select-option *ngFor="let rol of roles" [value]="rol">{{rol}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button expand="block" type="submit" (click)="register()">Ok</ion-button>
+    </form>
+  </ion-card>
+</ion-content>

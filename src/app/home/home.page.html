@@ -1,20 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-buttons slot="start">
+  <ion-menu-button></ion-menu-button>
+  <ion-grid>
+    <ion-row class="ion-justify-content-end">
+      <ion-col class="ion-justify-content-end" size="3">
+        <ion-button [routerLink]="['/help']" routerLinkActive="router-link-active">
+          <ion-icon name="help-circle-outline"></ion-icon>
+          <ion-label>Ayuda</ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-buttons>
+<ion-tabs>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-tab-bar>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+    <ion-tab-button tab="settings" disabled>
+      <ion-icon name="settings"></ion-icon>
+      <ion-label>Ajustes</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="inicio">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="logout()">
+      <ion-label>Cerrar Sesion</ion-label>
+      <ion-icon name="exit"></ion-icon>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+
+</ion-tabs>
